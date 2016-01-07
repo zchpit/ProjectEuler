@@ -1,4 +1,4 @@
-﻿module ProjectEulerInF#.AssemblyInfo
+﻿module ProjectEulerInF.AssemblyInfo
 open System.Reflection
 open System.Runtime.CompilerServices
 
