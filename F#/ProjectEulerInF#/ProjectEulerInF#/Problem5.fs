@@ -1,6 +1,6 @@
 ﻿
 
-namespace Application2
+namespace Application
 open System
 
 module Problem5 = type T = X
