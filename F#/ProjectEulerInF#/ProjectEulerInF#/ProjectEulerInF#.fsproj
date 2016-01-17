@@ -31,6 +31,7 @@
     <Compile Include="Program.fs" />
     <Compile Include="Problem1.fs" />
     <Compile Include="Problem2.fs" />
+    <Compile Include="Problem3.fs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\..\Microsoft SDKs\F#\3.1\Framework\v4.0\Microsoft.FSharp.Targets" />
 </Project>
