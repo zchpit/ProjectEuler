@@ -15,16 +15,9 @@ open System
      }
    allPrimes' 2 // starting from 2
  
- allPrimes
- |> Seq.take 20 // only 20
- |> List.ofSeq // forces evaluation of first 20 items
+ let primes = allPrimes |> Seq.take 200  |> List.ofSeq 
 
- let FindBigestPrime =
-    let rec FindBigestPrime' n =
-        seq {
-            if CanDivide n then
-            yield n
-            yield! 
-        }
+
+ let solution = primes |> List.filter(fun x -> 13195 % x = 0)
 
 
