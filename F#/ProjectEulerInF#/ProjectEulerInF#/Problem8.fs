@@ -12,18 +12,17 @@ let multiply list =
        | [] -> acc
    loop list 1.0
 
-let num2 = string |> Seq.skip 5 |> Seq.take 5 |> Seq.map Char.GetNumericValue |> Seq.toList
+let num2 = string |> Seq.skip 3 |> Seq.take 5 |> Seq.map Char.GetNumericValue |> Seq.toList
 let test1 = multiply num2
 
 let rec getMaxSeq (strAll:string, minNum:int, takeNum:int, accMax:float) =
     let current = strAll |> Seq.skip minNum |> Seq.take takeNum |> Seq.map Char.GetNumericValue |> Seq.toList
     let currentVal = multiply current
-    if minNum > 20 then accMax
+    if minNum > 3 then accMax
     else
        if
           currentVal > accMax then
-          accMax = currentVal;
-          getMaxSeq(strAll,minNum+1,takeNum,accMax)
+          getMaxSeq(strAll,minNum+1,takeNum,currentVal)
        else
           getMaxSeq(strAll,minNum+1,takeNum,accMax)
 
