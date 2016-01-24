@@ -45,14 +45,13 @@ let lenght2 = String.length stringStrip
 let rec getMaxSeq (strAll:string, minNum:int, takeNum:int, accMax:float) =
     let current = strAll |> Seq.skip minNum |> Seq.take takeNum |> Seq.map Char.GetNumericValue |> Seq.toList
     let currentVal = multiply current
-    printfn "%f" accMax
+
     if minNum > (1000-minNum) then accMax
     else
-       if
-          currentVal > accMax then
-          getMaxSeq(strAll,minNum+1,takeNum,currentVal)
-       else
-          getMaxSeq(strAll,minNum+1,takeNum,accMax)
+        match (currentVal,minNum) with
+        | (currentVal,minNum) when currentVal > accMax -> getMaxSeq(strAll,minNum+1,takeNum,currentVal)
+        | (currentVal,minNum) when currentVal <= accMax -> getMaxSeq(strAll,minNum+1,takeNum,accMax)
+
 
 let example = getMaxSeq(stringStrip,0,4,0.0) //test case from example -> 9 × 9 × 8 × 9 = 5832
 let solution = getMaxSeq(stringStrip,0,13,0.0) // 
