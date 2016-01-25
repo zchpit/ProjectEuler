@@ -1,17 +1,22 @@
 ﻿namespace Application
 open System
 
-let filterWithSet set lst = lst |> List.filter (fun (_, elem) -> Set.contains elem set)
+let isPythagoreanTriplet(numbers : int list) =
+    match List.sort(numbers) with
+    | [a; b; c] -> a*a + b*b = c*c
+    | _ -> false
+ 
+let getTriplets =
+    seq {
+        for a = 1 to 1000 do
+            for b = 1 to 1000 do
+                for c = 1 to 1000 do
+                    if a + b + c = 1000 then yield [a; b; c]
+    }
+ 
+let pythagoreanTriplet = getTriplets |> Seq.filter isPythagoreanTriplet |> Seq.head
+let product = pythagoreanTriplet |> Seq.fold (fun acc x -> acc * x) 1
 
-let xList = [ for i in 1 .. 1000 -> i*i ] |> List.distinct
-let yList = [ for i in 1 .. 1000 -> i,i*i ] |> List.distinct
-let zList = xList |> List.collect (fun x -> xList |> List.map (fun y -> x + y)) |> List.distinct |> List.sort
-let xxList = xList |> List.map (fun x -> xList |> List.map (fun y -> x + y),x) |> List.distinct
+//I was wrong 
+//solution taken from: http://theburningmonk.com/2010/09/project-euler-problem-9-solution/
 
-
-let filter = set xList
-let cont = zList |> List.filter (fun a -> Set.contains a filter) |> List.distinct |> Set.ofList
-
-let toAddList = filterWithSet cont yList //|> List.filter(fun (a,b)-> b = 1000000) |> List.map(fun(a,b) -> a)
-
-//let sol1 = xxList |> List.filter(fun (a,b) -> b = 1000) |> List.map(fun(a,b) -> b)
