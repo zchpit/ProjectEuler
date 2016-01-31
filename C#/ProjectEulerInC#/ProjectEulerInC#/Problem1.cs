@@ -7,9 +7,9 @@ namespace ProjectEulerInC
 		public Problem1 ()
 		{
 		}
-		public static int GetSolution(bool isTestMode)
+		public static int GetSolution(bool isProdMode)
 		{
-			int numberBelow = isTestMode ? 10 : 1000;
+			int numberBelow = isProdMode ? 1000 : 10;
 			int solution = 0;
 			for (int i = 0; i < numberBelow; i++) 
 			{

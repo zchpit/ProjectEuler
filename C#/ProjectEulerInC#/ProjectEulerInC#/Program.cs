@@ -6,8 +6,7 @@ namespace ProjectEulerInC
 	{
 		public static void Main (string[] args)
 		{
-			var solution1 = Problem1.GetSolution (false);
-
+			var solution = Problem2.GetSolution (true);
 
 			Console.ReadKey ();
 		}
