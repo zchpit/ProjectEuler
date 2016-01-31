@@ -20,27 +20,27 @@ namespace ProjectEulerInC
 			watch.Stop();
 			var time1 = watch.ElapsedMilliseconds;
 			watch = Stopwatch.StartNew();
-			var sol12 = GetPrimeFactors2 ();
+			var sol12 = GetPrimeFactors2 (13195);
 			watch.Stop();
 			var time2 = watch.ElapsedMilliseconds;
 			bool is1Faster =  time1 < time2 ? true : false;
 
 		}
 
-		public static long GetSolution(bool isProductionMode)
+		public static long GetSolution()
 		{
-			long num = isProductionMode ? 600851475143 : 13195;
+			int num = 13195;
 				
-			var primes = GetPrimeFactors2 ();
+			var primes = GetPrimeFactors2 (num);
 			for (int i = primes.Count; i > 0; i--) {
 				if(num % i == 0)
 					return i;
 			}
 			return 1;
 		}
-		public static List<int> GetPrimeFactors2()
+		public static List<int> GetPrimeFactors2(int num)
 		{
-			int num = 13195;
+			//int num = 13195;
 			//this standard, but is slow
 			//List<int> allItems = Enumerable.Range(2,num).ToList();
 			//this is good but max items are Int32.Max
