@@ -6,8 +6,8 @@ namespace ProjectEulerInC
 	{
 		public static void Main (string[] args)
 		{
-			Problem3.SpeedTest ();
-			var solution = Problem3.GetSolution (true);
+			//Problem4.SpeedTest ();
+			var solution = Problem4.GetSolution ();
 			Console.WriteLine (solution);
 			Console.ReadKey ();
 		}

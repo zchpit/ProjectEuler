@@ -23,7 +23,7 @@ namespace ProjectEulerInC
 			var sol12 = GetPrimeFactors2 ();
 			watch.Stop();
 			var time2 = watch.ElapsedMilliseconds;
-			bool is1Faster =  time1 > time2 ? true : false;
+			bool is1Faster =  time1 < time2 ? true : false;
 
 		}
 
@@ -31,7 +31,7 @@ namespace ProjectEulerInC
 		{
 			long num = isProductionMode ? 600851475143 : 13195;
 				
-			var primes = GetPrimeFactors1 ();
+			var primes = GetPrimeFactors2 ();
 			for (int i = primes.Count; i > 0; i--) {
 				if(num % i == 0)
 					return i;
@@ -41,16 +41,20 @@ namespace ProjectEulerInC
 		public static List<int> GetPrimeFactors2()
 		{
 			int num = 13195;
-			//int num2 = 100000;
-			//List<long> allItems = Enumerable.Range(2.0,num).ToList();
+			//this standard, but is slow
+			//List<int> allItems = Enumerable.Range(2,num).ToList();
+			//this is good but max items are Int32.Max
+
+			/*this is very slow, but can have larger max than int32.Max
 			var allItems = new List<int>(num){};
 			int i = 0;
 			while (i < num) {
 				i++;
 				allItems.Add (i);
-			}
+			}*/
 
-			for(long toCheck = 2; toCheck < num; toCheck++)
+			List<int> allItems = Enumerable.Range (0, Convert.ToInt32 (Math.Floor (2.52 * Math.Sqrt (num) / Math.Log (num)))).ToList();
+			for(int toCheck = 2; toCheck < num; toCheck++)
 			{
 				allItems.RemoveAll (j => j != toCheck && j % toCheck == 0);
 			}
