@@ -33,6 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="DoubleConverter.cs" />
     <Compile Include="Problem18.cs" />
     <Compile Include="Problem19.cs" />
+    <Compile Include="Problem20.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
