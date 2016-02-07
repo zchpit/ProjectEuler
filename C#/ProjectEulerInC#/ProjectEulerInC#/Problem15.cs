@@ -10,18 +10,18 @@ namespace ProjectEulerInC
 		//Fatorial formula
 		public static double GetSolution()
 		{
-			double pow20 = 1;
-			double pow40 = 1;
+			double fact20 = 1;
+			double fact40 = 1;
 
 			for (double i = 1; i <= 40; i++)
 			{
-				pow40 *= i;
+				fact40 *= i;
 
 				if (i == 20)
-					pow20 = pow40;
+					fact20 = fact40;
 			}
 
-			var solution = pow40 / (pow20 * pow20);
+			var solution = fact40 / (fact20 * fact20);
 			return solution;
 		}
 	}
