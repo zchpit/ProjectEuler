@@ -60,6 +60,12 @@
     <Compile Include="Problem19.cs" />
     <Compile Include="Problem20.cs" />
     <Compile Include="Problem21.cs" />
+    <Compile Include="Problem22.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="p022_names.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>
